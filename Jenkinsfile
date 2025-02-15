@@ -29,7 +29,7 @@ pipeline {
 
     stage('Example') {
       when {
-        expression { CC == "ABC" }
+        environment name: 'CC', value: 'ABC'
       }
       input {
         message "Should we continue?"
