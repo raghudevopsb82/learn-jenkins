@@ -6,6 +6,8 @@ pipeline {
     jenkins_password = credentials('jenkins-agent-ssh')
   }
 
+  options { buildDiscarder(logRotator(numToKeepStr: '3')) }
+
   stages {
     stage('One') {
       steps {
