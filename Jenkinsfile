@@ -14,6 +14,8 @@ pipeline {
     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
   }
 
+  triggers { pollSCM('H/1 * * * *') }
+
   options { buildDiscarder(logRotator(numToKeepStr: '3')) }
 
   stages {
