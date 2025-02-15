@@ -8,4 +8,11 @@ pipeline {
       }
     }
   }
+
+  post {
+    always {
+      sh 'echo Post Step'
+    }
+  }
+
 }
