@@ -28,6 +28,9 @@ pipeline {
     }
 
     stage('Example') {
+      when {
+        expression { CC == "ABC" }
+      }
       input {
         message "Should we continue?"
         ok "Yes, we should."
