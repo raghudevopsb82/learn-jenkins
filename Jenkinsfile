@@ -63,9 +63,6 @@ pipeline {
       }
     }
     stage('Parallel Stage') {
-      when {
-        branch 'master'
-      }
       failFast true
       parallel {
         stage('Branch A') {
@@ -85,9 +82,6 @@ pipeline {
           }
         }
         stage('Branch C') {
-          agent {
-            label "for-branch-c"
-          }
           stages {
             stage('Nested 1') {
               steps {
