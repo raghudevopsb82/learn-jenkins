@@ -125,7 +125,11 @@ pipeline {
 
     stage('Run-for-dev') {
       when {
-        expression { BRANCH_NAME != "main" }
+        allOf {
+          expression { BRANCH_NAME != "main" }
+          expression { BRANCH_NAME !=~ "PR-.*" }
+        }
+
       }
       steps {
         echo 'This stage will be executed first.'
