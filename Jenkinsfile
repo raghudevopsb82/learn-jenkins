@@ -125,7 +125,7 @@ pipeline {
 
     stage('Run-for-dev') {
       when {
-        branch 'demo1'
+        expression { BRANCH_NAME != "main" }
       }
       steps {
         echo 'This stage will be executed first.'
