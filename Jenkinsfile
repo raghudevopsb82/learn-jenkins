@@ -5,16 +5,23 @@ node {
       sh 'env'
   }
 
-  stage('Run-for-main') {
-    echo 'This stage will be executed first.'
+  if("${BRANCH_NAME}" == "main") {
+    stage('Run-for-main') {
+      echo 'This stage will be executed first.'
+    }
   }
 
-  stage('Run-for-dev') {
-    echo 'This stage will be executed first.'
+  if("${BRANCH_NAME}" != "main") {
+    stage('Run-for-dev') {
+      echo 'This stage will be executed first.'
+    }
   }
 
-  stage('Run-for-PR') {
-    echo 'This stage will be executed first.'
+
+  if("${BRANCH_NAME}" =~ "PR-.*") {
+    stage('Run-for-PR') {
+      echo 'This stage will be executed first.'
+    }
   }
 
 
