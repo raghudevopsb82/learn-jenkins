@@ -11,7 +11,7 @@ node {
     }
   }
 
-  if("${BRANCH_NAME}" != "main" && "${BRANCH_NAME}" =~ "PR-.*") {
+  if("${BRANCH_NAME}" != "main" && "${BRANCH_NAME}" !=~ "PR-.*") {
     stage('Run-for-dev') {
       echo 'This stage will be executed first.'
     }
