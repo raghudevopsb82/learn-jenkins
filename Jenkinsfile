@@ -134,6 +134,9 @@ pipeline {
     }
 
     stage('Run-for-pr') {
+      when {
+        expression { BRANCH_NAME ==~ "PR-.*" }
+      }
       steps {
         echo 'This stage will be executed first.'
         sh 'env'
