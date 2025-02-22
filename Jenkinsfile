@@ -105,7 +105,29 @@ pipeline {
   agent any
 
   stages {
-    stage('Non-Parallel Stage') {
+
+    stage('Run-for-all') {
+      steps {
+        echo 'This stage will be executed first.'
+        sh 'env'
+      }
+    }
+
+    stage('Run-for-main') {
+      steps {
+        echo 'This stage will be executed first.'
+        sh 'env'
+      }
+    }
+
+    stage('Run-for-dev') {
+      steps {
+        echo 'This stage will be executed first.'
+        sh 'env'
+      }
+    }
+
+    stage('Run-for-pr') {
       steps {
         echo 'This stage will be executed first.'
         sh 'env'
@@ -113,7 +135,5 @@ pipeline {
     }
 
 
-      }
-    }
   }
 }
