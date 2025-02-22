@@ -114,6 +114,9 @@ pipeline {
     }
 
     stage('Run-for-main') {
+      when {
+        branch 'main'
+      }
       steps {
         echo 'This stage will be executed first.'
         sh 'env'
@@ -121,6 +124,9 @@ pipeline {
     }
 
     stage('Run-for-dev') {
+      when {
+        branch 'demo1'
+      }
       steps {
         echo 'This stage will be executed first.'
         sh 'env'
